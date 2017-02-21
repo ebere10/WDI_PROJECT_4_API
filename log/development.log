@@ -547,3 +547,87 @@ DEPRECATION WARNING: Method to_hash is deprecated and will be removed in Rails 5
 Completed 200 OK in 133ms (Views: 0.6ms | ActiveRecord: 3.4ms)
 
 
+Started POST "/register" for 127.0.0.1 at 2017-02-21 10:40:01 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (10.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by AuthenticationsController#register as HTML
+  Parameters: {"email"=>"ebs@ebs.com", "password"=>"[FILTERED]", "passwordConfirmation"=>"[FILTERED]", "authentication"=>{"email"=>"ebs@ebs.com", "password"=>"[FILTERED]", "passwordConfirmation"=>"[FILTERED]"}}
+DEPRECATION WARNING: Method to_hash is deprecated and will be removed in Rails 5.1, as `ActionController::Parameters` no longer inherits from hash. Using this deprecated behavior exposes potential security problems. If you continue to use this method you may be creating a security vulnerability in your app that can be exploited. Instead, consider using one of these documented methods which are not deprecated: http://api.rubyonrails.org/v5.0.1/classes/ActionController/Parameters.html (called from merge! at /Users/Ebere/development/WDI_PROJECT_4_API/app/controllers/authentications_controller.rb:27)
+  [1m[35m (2.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (10.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ebs@ebs.com"], ["LIMIT", 1]]
+  [1m[35mSQL (5.9ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "ebs@ebs.com"], ["password_digest", "$2a$10$VXAhEZIpXTlixNTusTGeZOCT8D680KzHN8KmclE/MYW.U/K3u3rz2"], ["created_at", 2017-02-21 10:40:02 UTC], ["updated_at", 2017-02-21 10:40:02 UTC]]
+  [1m[35m (3.9ms)[0m  [1m[35mCOMMIT[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (29.6ms)
+Completed 200 OK in 250ms (Views: 38.6ms | ActiveRecord: 47.9ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2017-02-21 13:51:29 +0000
+Processing by AuthenticationsController#login as HTML
+  Parameters: {"email"=>"ebere@ebere.com", "password"=>"[FILTERED]", "authentication"=>{"email"=>"ebere@ebere.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (3.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ebere@ebere.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.62ms)
+Completed 200 OK in 134ms (Views: 2.7ms | ActiveRecord: 6.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2017-02-21 13:51:51 +0000
+Processing by AuthenticationsController#login as HTML
+  Parameters: {"email"=>"ebere10@hotmail.com", "password"=>"[FILTERED]", "authentication"=>{"email"=>"ebere10@hotmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ebere10@hotmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (2.51ms)
+Completed 401 Unauthorized in 33ms (Views: 30.4ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2017-02-21 13:51:53 +0000
+Processing by AuthenticationsController#login as HTML
+  Parameters: {"email"=>"ebere10@hotmail.com", "password"=>"[FILTERED]", "authentication"=>{"email"=>"ebere10@hotmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ebere10@hotmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.23ms)
+Completed 401 Unauthorized in 7ms (Views: 1.6ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/register" for 127.0.0.1 at 2017-02-21 13:52:22 +0000
+Processing by AuthenticationsController#register as HTML
+  Parameters: {"email"=>"sue@sue.com", "password"=>"[FILTERED]", "passwordConfirmation"=>"[FILTERED]", "authentication"=>{"email"=>"sue@sue.com", "password"=>"[FILTERED]", "passwordConfirmation"=>"[FILTERED]"}}
+DEPRECATION WARNING: Method to_hash is deprecated and will be removed in Rails 5.1, as `ActionController::Parameters` no longer inherits from hash. Using this deprecated behavior exposes potential security problems. If you continue to use this method you may be creating a security vulnerability in your app that can be exploited. Instead, consider using one of these documented methods which are not deprecated: http://api.rubyonrails.org/v5.0.1/classes/ActionController/Parameters.html (called from merge! at /Users/Ebere/development/WDI_PROJECT_4_API/app/controllers/authentications_controller.rb:27)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "sue@sue.com"], ["LIMIT", 1]]
+  [1m[35mSQL (8.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "sue@sue.com"], ["password_digest", "$2a$10$frPt3Fgd6vy7nbMtrF0ZV.gWndfEAKsLUNEcUjXBV/BLmqJ9BV.zq"], ["created_at", 2017-02-21 13:52:22 UTC], ["updated_at", 2017-02-21 13:52:22 UTC]]
+  [1m[35m (3.3ms)[0m  [1m[35mCOMMIT[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.25ms)
+Completed 200 OK in 193ms (Views: 1.0ms | ActiveRecord: 12.9ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2017-02-21 14:21:44 +0000
+Processing by AuthenticationsController#login as HTML
+  Parameters: {"email"=>"ebere@ebere.com", "password"=>"[FILTERED]", "authentication"=>{"email"=>"ebere@ebere.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ebere@ebere.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (2.51ms)
+Completed 200 OK in 133ms (Views: 23.7ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2017-02-21 14:23:14 +0000
+Processing by AuthenticationsController#login as HTML
+  Parameters: {"email"=>"ebere@ebere.com", "password"=>"[FILTERED]", "authentication"=>{"email"=>"ebere@ebere.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ebere@ebere.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.13ms)
+Completed 200 OK in 122ms (Views: 0.6ms | ActiveRecord: 12.2ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2017-02-21 14:56:35 +0000
+Processing by AuthenticationsController#login as HTML
+  Parameters: {"email"=>"ebere@ebere.com", "password"=>"[FILTERED]", "authentication"=>{"email"=>"ebere@ebere.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ebere@ebere.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.95ms)
+Completed 200 OK in 93ms (Views: 3.6ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2017-02-21 15:12:51 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by AuthenticationsController#login as HTML
+  Parameters: {"email"=>"ebere@ebere.com", "password"=>"[FILTERED]", "authentication"=>{"email"=>"ebere@ebere.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ebere@ebere.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.18ms)
+Completed 200 OK in 100ms (Views: 0.8ms | ActiveRecord: 0.7ms)
+
+
